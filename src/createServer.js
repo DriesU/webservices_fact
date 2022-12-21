@@ -2,6 +2,7 @@ const Koa = require('koa');
 const config = require('config');
 const koaCors = require('@koa/cors');
 const bodyParser = require('koa-bodyparser');
+/*
 const emoji = require('node-emoji');
 const {
   serializeError,
@@ -12,12 +13,12 @@ const {
 } = require('koa2-swagger-ui');
 
 const swaggerOptions = require('../swagger.config');
-
+*/
 const {
   initializeLogger,
   getLogger,
 } = require('./core/logging');
-const ServiceError = require('./core/serviceError');
+//const ServiceError = require('./core/serviceError');
 const {
   initializeData,
   shutdownData,
@@ -61,7 +62,7 @@ module.exports = async function createServer() {
   const logger = getLogger();
 
   app.use(bodyParser());
-
+  /*
   const spec = swaggerJsdoc(swaggerOptions);
   app.use(
     koaSwagger({
@@ -147,7 +148,7 @@ module.exports = async function createServer() {
       ctx.body = errorBody;
     }
   });
-
+*/
   installRest(app);
 
   return {
