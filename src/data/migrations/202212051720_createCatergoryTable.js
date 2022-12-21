@@ -6,6 +6,7 @@ module.exports = {
       table.increments('id');
       table.string('name', 255)
         .notNullable();
+      table.primary(['id']);
     });
   },
   down: (knex) => {
