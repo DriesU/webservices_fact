@@ -26,16 +26,6 @@ const findAll = async () => {
 };
 
 /**
- * Calculate the total number of facts.
- */
-const findCount = async () => {
-  const [count] = await getKnex()(tables.fact)
-    .count();
-
-  return count['count(*)'];
-};
-
-/**
  * Find a fact with the given `id`.
  */
 const findById = async (id) => {
@@ -112,7 +102,7 @@ const deleteById = async (id) => {
 
 module.exports = {
   findAll,
-  findCount,
+  // findCount,
   findById,
   create,
   updateById,

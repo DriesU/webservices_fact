@@ -138,7 +138,7 @@ function getKnex() {
 
 const tables = {
   category: 'categories', //category
-  user: 'users', //user table
+  user: 'users', //user table`
   fact: 'facts', //transaction table
   likedFact: 'likedFacts', //place
 
