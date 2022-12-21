@@ -32,11 +32,11 @@ const register = ({
  */
 const getAll = async () => {
   debugLog('Fetching all users');
-  const data = await userRepository.findAll();
-  const totalCount = await userRepository.findCount();
+  const items = await userRepository.findAll();
+  const count = await userRepository.findCount();
   return {
-    data,
-    count: totalCount,
+    items,
+    count,
   };
 };
 
@@ -125,10 +125,31 @@ const deleteById = async (id) => {
   }
 };
 
+
+//create a new user
+
+const createUser = async ({
+  firstName,
+  lastName,
+}) => {
+  debugLog('Creating a new user', {
+    firstName,
+    lastName,
+  });
+  return userRepository.createUser({
+    firstName,
+    lastName,
+  });
+};
+
+
+
+
 module.exports = {
   register,
   getAll,
   getById,
   updateUserById,
   deleteById,
+  createUser,
 };
