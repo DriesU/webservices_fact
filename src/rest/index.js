@@ -1,8 +1,8 @@
 const Router = require('@koa/router');
 
-const installTransactionRouter = require('./_transactions');
+const installFactRouter = require('./_fact');
 const installHealthRouter = require('./_health');
-const installPlaceRouter = require('./_places');
+const installLikedFactRouter = require('./_likedFact');
 const installUserRouter = require('./_user');
 /**
  * @openapi
@@ -131,8 +131,8 @@ module.exports = (app) => {
     prefix: '/api',
   });
 
-  installTransactionRouter(router);
-  installPlaceRouter(router);
+  installFactRouter(router);
+  installLikedFactRouter(router);
   installHealthRouter(router);
   installUserRouter(router);
 
