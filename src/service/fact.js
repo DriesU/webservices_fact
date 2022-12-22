@@ -15,10 +15,10 @@ const debugLog = (message, meta = {}) => {
 const getAll = async () => {
   debugLog('Fetching all facts');
   const items = await factRepository.findAll();
-  const count = await factRepository.findCount();
+  //const count = await factRepository.findAll();
   return {
     items,
-    count,
+
   };
 };
 
