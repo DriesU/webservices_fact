@@ -7,16 +7,19 @@ module.exports = {
         id: 1,
         firstName:'Fons',
         lastName:'Van Callenberge',
+        auth0id: 'unknown',
       },
       {
         id: 2,
         firstName:'Palmyra',
         lastName:'Van Callenberge',
+        auth0id: 'unknown',
       },
       {
         id: 3,
-        firstName:'Pol',
-        lastName:'Thijs',
+        firstName:'Dries',
+        lastName:'Uytterschaut',
+        auth0id: 'unknown',
       },
     ]);
   },

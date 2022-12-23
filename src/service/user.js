@@ -1,3 +1,4 @@
+/* eslint-disable comma-dangle */
 const {
   getLogger,
 } = require('../core/logging');
@@ -16,13 +17,13 @@ const debugLog = (message, meta = {}) => {
  * @param {string} user.name - The user's name.
  */
 const register = ({
-  name,
+  name, auth0id
 }) => {
   debugLog('Creating a new user', {
-    name,
+    name, auth0id
   });
   return userRepository.create({
-    name,
+    name, auth0id
   });
 };
 
@@ -131,17 +132,30 @@ const deleteById = async (id) => {
 const createUser = async ({
   firstName,
   lastName,
+  auth0id
 }) => {
   debugLog('Creating a new user', {
     firstName,
     lastName,
+    auth0id
   });
   return userRepository.createUser({
     firstName,
     lastName,
+    auth0id
   });
 };
 
+const getByAuth0Id = async (auth0id) => {
+  debugLog(`Fetching user with auth0id ${auth0id}`);
+  const user = await userRepository.findByAuth0Id(auth0id);
+
+  if (!user) {
+    throw ServiceError.notFound(`No user with id ${auth0id} exists`, {
+      auth0id,
+    });
+  }
+};
 
 
 
@@ -152,4 +166,5 @@ module.exports = {
   updateUserById,
   deleteById,
   createUser,
+  getByAuth0Id,
 };

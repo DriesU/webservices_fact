@@ -1,7 +1,10 @@
+/* eslint-disable import/order */
 const Koa = require('koa');
 const config = require('config');
 const koaCors = require('@koa/cors');
 const bodyParser = require('koa-bodyparser');
+
+const { checkJwtToken } = require('./core/auth');
 /*
 const emoji = require('node-emoji');
 const {
@@ -14,6 +17,9 @@ const {
 
 const swaggerOptions = require('../swagger.config');
 */
+
+
+
 const {
   initializeLogger,
   getLogger,
@@ -60,6 +66,15 @@ module.exports = async function createServer() {
   );
 
   const logger = getLogger();
+
+  app.use(checkJwtToken());
+
+  app.use(async (ctx, next) => {
+    logger.debug(`token: ${ctx.headers.authorization}`);
+    logger.debug(`current user: ${JSON.stringify(ctx.state.user)}`);
+    logger.debug(`error in token: ${ctx.state.jwtOriginalError}`);
+    await next();
+  });
 
   app.use(bodyParser());
   /*

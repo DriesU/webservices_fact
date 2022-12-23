@@ -12,7 +12,7 @@ const createServer = require("../../src/createServer");
 const supertest = require("supertest");
 const {tables, getKnex} = require("../../src/data/index");
 */
-
+const config = require('config');
 const { withServer } = require("../helpers");
 const { tables } = require("../../src/data/index");
 
@@ -118,10 +118,12 @@ const dataToDelete = {
 describe('fact',  () => {
     let request;
     let knex;
+    let authHeader;
 
-    withServer(({ knex: k, request: r }) => {
+    withServer(({ knex: k, request: r, authHeader:h }) => {
         knex = k;
         request = r;
+        authHeader = h;
       });
     
 /*
@@ -151,7 +153,7 @@ describe('fact',  () => {
     })
 */
     it('should return 200 and all facts', async () => {
-      const response = await request.get(url);
+      const response = await request.get(url).set('Authorization', authHeader);
       expect(response.status).toBe(200);
       expect(response.body.items.length).toBe(5);
     })
@@ -160,7 +162,7 @@ describe('fact',  () => {
   //write a test function for the getFactById function
     describe('GET /api/facts/:id', () => {
         it('should return 200 and the fact with the given id', async () => {
-            const response = await request.get(`${url}/1`);
+            const response = await request.get(`${url}/1`).set('Authorization', authHeader);
             expect(response.status).toBe(200);
             expect(response.body.id).toBe(1);
             expect(response.body.fact).toBe('De eerste mens die een vliegtuig bestuurde was een Belg.');
@@ -174,7 +176,7 @@ describe('fact',  () => {
             const response = await request.post(url).send({
                 fact: 'testFact',
                 categoryId: 1,
-            });
+            }).set('Authorization', authHeader);
             expect(response.status).toBe(201);
             expect(response.body.id).toBe(6);
             expect(response.body.fact).toBe('testFact');
@@ -189,7 +191,7 @@ describe('fact',  () => {
             const response = await request.put(`${url}/1`).send({
                 fact: 'De eerste mens die een vliegtuig bestuurde was een Belg.',
                 categoryId: 1,
-            });
+            }).set('Authorization', authHeader);
             expect(response.status).toBe(200);
             expect(response.body.id).toBe(1);
             expect(response.body.fact).toBe('De eerste mens die een vliegtuig bestuurde was een Belg.');
@@ -200,7 +202,7 @@ describe('fact',  () => {
     //write a test function for deleteFact function
     describe('DELETE /api/facts/:id', () => {
         it('should return 200 and the deleted fact', async () => {
-            const response = await request.delete(`${url}/6`);
+            const response = await request.delete(`${url}/6`).set('Authorization', authHeader);
             expect(response.status).toBe(204);
             //expect(response.body.id).toBe(1);
            // expect(response.body.fact).toBe('testFact');

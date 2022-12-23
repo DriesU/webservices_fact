@@ -26,12 +26,14 @@ const findById = (id) => {
 const createUser = async ({
   firstName,
   lastName,
+  auth0id,
 }) => {
   try {
     const [id] = await getKnex()(tables.user)
       .insert({
         firstName,
         lastName,
+        auth0id: auth0id,
       });
     return id;
   } catch (error) {
@@ -57,6 +59,12 @@ const deleteById = async (id) => {
     });
     throw error;
   }
+};
+
+const findByAuth0Id = async (auth0id) => {
+  return await getKnex()(tables.user)
+    .where('auth0id', auth0id)
+    .first();
 };
 
 //update a user, the user is identified by the id, make sure it doesn't result in a error (empty updatce call), thankyou
@@ -88,4 +96,5 @@ module.exports = {
   createUser,
   updateUserById,
   deleteById,
+  findByAuth0Id,
 };
