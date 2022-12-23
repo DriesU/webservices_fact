@@ -10,8 +10,8 @@ module.exports = {
   },
   database: {
     client: 'mysql2',
-    host: 'localhost',
-    port: 3306,
-    name: 'budget',
+    host: 'vichogent.be',
+    port: 40043,
+    name: '182254du',
   },
 };
