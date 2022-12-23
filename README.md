@@ -1,7 +1,5 @@
 # Dries Uytterschaut (182254du)
 
-> Duid aan welke vakken je volgt en vermeld voor deze vakken de link naar jouw GitHub repository. In het geval je slechts één vak volgt, verwijder alle inhoud omtrent het andere vak.
-
 - [ ] Front-end Web Development
   - [GitHub repository](github.com/HOGENT-Web)
   - [Online versie](github.com/HOGENT-Web)
@@ -17,11 +15,10 @@
 
 ## Projectbeschrijving
 
-> Omschrijf hier duidelijk waarover jouw project gaat. Voeg een domeinmodel (of EERD) toe om jouw entiteiten te verduidelijken.
-Bij dit project is het de bedoeling dat gebruikers facts kunnen bekijken, het is ook mogelijk om facts te bekijken met de category erbij. Als ze een fact tof vinden kunnen ze dat aanduiden en komt het bij hun persoonlijke lijst met gelikede facts. Deze lijst kunnen ze ook afzonderlijk bekijken.
-moderators kunnen facts toevoegen terwijl gebruikers enkel de facts kunnen lezen en liken.
-
-
+Bij dit project is het de bedoeling dat gebruikers feiten kunnen bekijken, het is ook mogelijk om feiten te bekijken met de categorie erbij.<br/> 
+Als een gebruiker een feit leuk vindt, kan de gebruiker dat aangeven en komt het bij hun persoonlijke lijst met gelikte feiten.<br/> 
+Deze lijst kunnen ze ook afzonderlijk bekijken.<br />
+Moderators kunnen feiten toevoegen terwijl gebruikers alleen de feiten kunnen lezen en liken.
 
 
 ## Screenshots
@@ -74,10 +71,10 @@ moderators kunnen facts toevoegen terwijl gebruikers enkel de facts kunnen lezen
 
 ### Web Services
 
-alles van repo/rest/service verdeelt in mappen onder src
-apparte core en data(seeds en migrations) map
-test directory heeft dezelfde structuur als de src map
-config files in apparte config dir
+alles van repo/rest/service verdeelt in mappen onder src <br/>
+aparte core en data(seeds en migrations) map <br/>
+test directory heeft dezelfde structuur als de src map <br/>
+config files in aparte config dir
 ## Extra technologie
 niet van toepassing
 ### Web Services
@@ -86,9 +83,9 @@ niet van toepassing
 ## Testresultaten
 
 ### Web Services
-fact.spec.js (get/post/put/del) getest
-likedFact.spec.js (get/del) getest
-user.spec.js (get/post/del) getest
+fact.spec.js (get/post/put/del) getest <br/>
+likedFact.spec.js (get/del) getest <br/>
+user.spec.js (get/post/del) getest 
 
 ![coverage](media/chrome_EKP3D3y4R0.png)
 ## Gekende bugs
