@@ -1,4 +1,4 @@
-# Voornaam Familienaam (Studentennummer)
+# Dries Uytterschaut (182254du)
 
 > Duid aan welke vakken je volgt en vermeld voor deze vakken de link naar jouw GitHub repository. In het geval je slechts één vak volgt, verwijder alle inhoud omtrent het andere vak.
 
@@ -90,7 +90,7 @@ fact.spec.js (get/post/put/del) getest
 likedFact.spec.js (get/del) getest
 user.spec.js (get/post/del) getest
 
-![coverage](../webservices_fact/media/chrome_EKP3D3y4R0.png)
+![coverage](media/chrome_EKP3D3y4R0.png)
 ## Gekende bugs
 ### Web Services
 Geen tegengekomen.
