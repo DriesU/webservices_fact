@@ -47,8 +47,8 @@ const getById = async (id) => {
  * @param {string} transaction.placeId - Id of the place the transaction happened.
  * @param {string} transaction.user - Name of the user who did the transaction.
  */
-const create = async ({fact, categoryId, userId}) => {
-  debugLog('Creating new fact', { fact, categoryId, userId});
+const create = async ({fact, categoryId}) => {
+  debugLog('Creating new fact', { fact, categoryId});
 
   // For now simply create a new user every time
   // const userId = await userService.register({ name: user });
@@ -56,7 +56,7 @@ const create = async ({fact, categoryId, userId}) => {
   const id = await factRepository.create({
     fact,
     categoryId,
-    userId,
+    //userId,
   });
   return getById(id);
 };

@@ -35,8 +35,8 @@ const withServer = (setter) => {
 
   beforeAll(async () => {
     server = await createServer();
-    const token = await fetchAccessToken();
-
+    //const token = await fetchAccessToken();
+    const token = 'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im5lNi1WNjVrLWM0OGlWWWdKMkFOdCJ9.eyJpc3MiOiJodHRwczovL2Rldi1obzN5bXczMG5vcW9yczZnLnVzLmF1dGgwLmNvbS8iLCJzdWIiOiJ5NUR1bGowUW5tRktFOG0wVjhPUUVBdGl6VnVyamJxRUBjbGllbnRzIiwiYXVkIjoiaHR0cHM6Ly93ZWJzZXJ2aWNlRmFjdHMuYmUiLCJpYXQiOjE2NzE3OTcxMTUsImV4cCI6MTY3MTg4MzUxNSwiYXpwIjoieTVEdWxqMFFubUZLRThtMFY4T1FFQXRpelZ1cmpicUUiLCJzY29wZSI6IndyaXRlIG9wZW5pZCBwcm9maWxlIGVtYWlsIG9mZmxpbmVfYWNjZXNzIHJlYWQiLCJndHkiOiJjbGllbnQtY3JlZGVudGlhbHMiLCJwZXJtaXNzaW9ucyI6WyJ3cml0ZSIsIm9wZW5pZCBwcm9maWxlIGVtYWlsIG9mZmxpbmVfYWNjZXNzIiwicmVhZCJdfQ.ShUR0SWdOgpyZGWLZdcNHacPcmjdClA4VOzPwpfSpqMh_84jJWCd_ckBj0aSRK0ekN3Dtmck_adE4H2DVdDfbZDQlc2zKmfTom88V5yqMji3UgOdyWOQ4yCqlr2f-UWP89wd7CMqjXKJttc6EpDfttirDcz3dJHcc40v_92vFye2oygVEkULq24lvoAiWa6PEG0PfiEvmhLLb_bGIjNhzX0_WU5M27sYj8cejGqYtfRr5FCo-_Zbu9duJ3XL00X73zGsw77bShrYw7Py2PW8AiqVK9IJk4ODHOZ4r44POvKP8fobl8n9h22olK3-x0mcSsJaNNA98DYw5MTyLnLnmw';
     setter({
       knex: getKnex(),
       request: supertest(server.getApp().callback()),

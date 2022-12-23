@@ -1,9 +1,10 @@
+/* eslint-disable quotes */
 const Joi = require('joi');
 const Router = require('@koa/router');
 
 const factService = require('../service/fact');
-const userService = require('../service/user');
-const {addUserInfo} = require('../core/auth');
+//const userService = require('../service/user');
+////const {addUserInfo} = require('../core/auth');
 const {permissions, hasPermission} = require('../core/auth');
 
 const validate = require('./_validation.js');
@@ -19,23 +20,9 @@ getAllFacts.validationScheme = {
 };
 
 const createFact = async (ctx) => {
-  let userId = 0;
-  try{
-    console.log("hey");
-    const user = await userService.getByAuth0Id(ctx.state.user.sub);
-    console.log("hoi");
-    userId = user.id;
-  } catch (error) {
-    await addUserInfo(ctx);
-    userId = await userService.createUser({
-      firstName: ctx.state.user.firstName,
-      lastName: ctx.state.user.lastName,
-      auth0Id: ctx.state.user.sub,
-    });
-  }
+  
   const newFact = await factService.create(ctx.request.body);
   ctx.body = newFact,
-  userId;
   ctx.status = 201;
 };
 

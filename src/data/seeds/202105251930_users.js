@@ -17,9 +17,9 @@ module.exports = {
       },
       {
         id: 3,
-        firstName:'Dries',
-        lastName:'Uytterschaut',
-        auth0id: 'unknown',
+        firstName:'dries',
+        lastName:'uytterschaut',
+        auth0id: 'auth0|63a47b8b808e526995f00fe6',
       },
     ]);
   },

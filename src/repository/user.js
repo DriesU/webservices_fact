@@ -1,3 +1,4 @@
+/* eslint-disable quotes */
 const { tables, getKnex } = require('../data');
 const { getLogger } = require('../core/logging');
 
@@ -61,8 +62,9 @@ const deleteById = async (id) => {
   }
 };
 
-const findByAuth0Id = async (auth0id) => {
-  return await getKnex()(tables.user)
+const findByAuth0Id =  (auth0id) => {
+  //console.log("auth0id: " + auth0id);
+  return getKnex()(tables.user)
     .where('auth0id', auth0id)
     .first();
 };

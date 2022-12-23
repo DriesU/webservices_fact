@@ -22,7 +22,7 @@ const register = ({
   debugLog('Creating a new user', {
     name, auth0id
   });
-  return userRepository.create({
+  return userRepository.createUser({
     name, auth0id
   });
 };
@@ -149,6 +149,7 @@ const createUser = async ({
 const getByAuth0Id = async (auth0id) => {
   debugLog(`Fetching user with auth0id ${auth0id}`);
   const user = await userRepository.findByAuth0Id(auth0id);
+  console.log(user);
 
   if (!user) {
     throw ServiceError.notFound(`No user with id ${auth0id} exists`, {
